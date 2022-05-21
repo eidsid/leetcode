@@ -4,12 +4,14 @@
  */
 
 var containsDuplicate = function (nums) {
-  for (let i = 0; i < nums.length; i++) {
-    for (let j = i + 1; j < nums.length; j++) {
-      if (nums[j] == nums[i]) {
-        return true;
-      }
-    }
+ let memo = {};
+  isfound = false;
+  let i = 0;
+  while (!isfound && i <= nums.length) {
+    if (nums[i] in memo) isfound = true;
+
+    memo[nums[i]] = "";
+    i++;
   }
-  return false;
+  return isfound;
 };
