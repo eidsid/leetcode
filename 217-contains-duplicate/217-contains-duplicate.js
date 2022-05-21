@@ -3,9 +3,10 @@
  * @return {boolean}
  */
 var containsDuplicate = function (nums, memo = {}, counter = 0) {
-   let current = nums[counter];
-  if (current in memo) return true;
-  if (nums.length === counter) return false;
-  memo[current] = "";
-  return containsDuplicate(nums, memo, counter + 1);
+  if (nums.length === 0) return false;
+  if (nums[0] in memo) return true;
+
+  memo[nums.shift()] = "";
+
+  return containsDuplicate(nums, memo);
 };
