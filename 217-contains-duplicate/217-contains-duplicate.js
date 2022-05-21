@@ -4,12 +4,13 @@
  */
 
 var containsDuplicate = function (nums) {
-  nums.sort();
   let foundDubl = false;
-  for (let i = 0; i < nums.length; i++) {
-    if (nums[i] == nums[i + 1]) {
-      foundDubl = true;
-      break;
+  for (var i = 0; i < nums.length; i++) {
+    for (let j = i + 1; j < nums.length; j++) {
+      if (nums[i] == nums[j]) {
+        foundDubl = true;
+        break;
+      }
     }
   }
   return foundDubl;
