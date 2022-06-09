@@ -1,32 +1,24 @@
 function lengthOfLongestSubstring(s: string): number {
-  if (s.length <= 1) return s.length;
-  let lastLongestSubStringLength: number = 0
-  let CurrnetLongestSubStringLength: number = 0
-
-  function checkwatchIsBig(): void {
-    if (lastLongestSubStringLength < CurrnetLongestSubStringLength) {
-      lastLongestSubStringLength = CurrnetLongestSubStringLength;
-    }
-
-  }
-
+  let LongestSubStringLength: number = 0
   for (let i = 0; i < s.length; i++) {
-
     let currentString = ""
-
+   
     for (let j = i; j < s.length; j++) {
 
       if (!currentString.includes(s[j])) {
         currentString += s[j]
-      } else {
+      
+        if (LongestSubStringLength <= currentString.length) {
+          LongestSubStringLength = currentString.length;
+        }
+
+      }
+      else {
         break;
       }
-      CurrnetLongestSubStringLength = currentString.length
-      checkwatchIsBig()
+
     }
 
   }
-
-
-  return lastLongestSubStringLength
+  return LongestSubStringLength
 };
