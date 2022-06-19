@@ -13,7 +13,7 @@ function rotate(nums: number[], k: number): void {
     for (let j = 0; j < resultArray.length; j++) {
       nums[j] = resultArray[j];
     }
-          resultArray.length = 0;
+          
 
   }
 
