@@ -1,15 +1,15 @@
 function reverseWords(s: string): string {
-  let splited = s.split(' ')
-  for (let i = 0; i < splited.length; i++) {
-    let word = splited[i].split('')
-    let left: number = 0, right: number = word.length - 1;
+  let splitedText = s.split(" ");
+  for (let i = 0; i < splitedText.length; i++) {
+    let word = splitedText[i].split("");
+
+    let left: number = 0,
+      right: number = word.length - 1;
+
     while (left < right) {
-      [word[left++], word[right--]] = [word[right], word[left]]
-
+      [word[left++], word[right--]] = [word[right], word[left]];
     }
-    splited[i] = word.join('')
-
-
+    splitedText[i] = word.join("");
   }
-  return splited.join(' ')
-};
+  return splitedText.join(" ");
+}
