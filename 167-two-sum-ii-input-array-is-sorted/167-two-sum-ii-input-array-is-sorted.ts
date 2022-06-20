@@ -4,10 +4,11 @@ function twoSum(numbers: number[], target: number): number[] {
   for (let i = 0; i < numbers.length; i++) {
     let rest = target - numbers[i]
     if (rest in memo) {
-      result = [memo[rest], i + 1]
+      result = [memo[rest] + 1, i + 1]
+      memo = {}
       break
     }
-    memo[numbers[i]] = i + 1
+    memo[numbers[i]] = i
   }
 
   return result;
