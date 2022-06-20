@@ -1,13 +1,15 @@
-function twoSum(numbers: number[], target: number, memo: object = {}): number[] {
-  let result:number[]
+function twoSum(numbers: number[], target: number): number[] {
+  let result: number[] = [];
+  let memo: object = {}
   for (let i = 0; i < numbers.length; i++) {
-    let rest:number = target - numbers[i]
+    let rest = target - numbers[i]
     if (rest in memo) {
-      result = [memo[rest]+1, i+1]
+      result = [memo[rest], i + 1]
       break
     }
-    memo[numbers[i]]=i
+    memo[numbers[i]] = i + 1
   }
 
   return result;
-};
+
+}
