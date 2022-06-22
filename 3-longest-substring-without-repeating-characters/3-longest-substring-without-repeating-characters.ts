@@ -1,25 +1,21 @@
 function lengthOfLongestSubstring(s: string): number {
-  let LongestSubStringLength: number = 0
-      let currentString = ""
-
+  let LongestSubStringLength: number = 0;
+  let text: string = "";
+  let possibleLongswap = true;
   for (let i = 0; i < s.length; i++) {
-currentString=""
+    text = "";
+    if (!possibleLongswap) break;
     for (let j = i; j < s.length; j++) {
-
-      if (!currentString.includes(s[j])) {
-        currentString += s[j]
-
-        if (LongestSubStringLength <= currentString.length) {
-          LongestSubStringLength = currentString.length;
+      if (!text.includes(s[j])) {
+        text += s[j];
+        if (text.length > LongestSubStringLength) {
+          LongestSubStringLength = text.length;
         }
-
-      }
-      else {
+      } else {
+        if (s.length - i < text.length) possibleLongswap =false;
         break;
       }
-
     }
-
   }
-  return LongestSubStringLength
-};
+  return LongestSubStringLength;
+}
