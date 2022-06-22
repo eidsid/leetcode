@@ -9,6 +9,7 @@ function lengthOfLongestSubstring(s: string): number {
         if (text.length > LongestSubStringLength) {
           LongestSubStringLength = text.length;
         }
+        // console.log(text, s[j], LongestSubStringLength);
       } else {
         break;
       }
