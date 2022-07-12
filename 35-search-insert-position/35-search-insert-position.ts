@@ -1,18 +1,9 @@
 
-function searchInsert(nums: number[], target: number): number {
-  let result: number = nums.length;
-  for (let i = 0; i < nums.length; i++) {
+function searchInsert(nums: number[], target: number):number {
+    let pointer = 0;
+    while (nums[pointer] < target) {
+        pointer++
 
-    if (nums[i] > target) {
-      result = i ;
-      break;
     }
-
-    if (nums[i] === target) {
-      result = i;
-      break;
-    }
-
-  }
-  return result;
-};
+    return pointer
+}
