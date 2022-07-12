@@ -1,20 +1,15 @@
+function search(nums: number[], target: number) {
 
-function search(nums: number[], target: number): number {
-  let start = 0;
-  let end = nums.length - 1;
-  let middel = Math.floor((start + end) / 2)
-  
-  while (nums[middel] !== target && start <= end) {
-
-    if (nums[middel] < target) {
-      start = middel + 1
+    let start = 0, end = nums.length - 1, middle = Math.floor((start + end) / 2)
+    while (nums[middle] !== target && start <= end) {
+        if (nums[middle] < target) {
+            start = middle + 1;
+        } else {
+            end = middle - 1;
+        }
+        middle = Math.floor((start + end) / 2)
     }
-    else {
-      end = middel - 1
-    }
-    middel = Math.floor((start + end) / 2)
-  }
 
-  if (nums[middel] == target) return middel
-  return -1;
-};
+    if (nums[middle] == target) return middle
+    return -1;
+}
